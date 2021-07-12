@@ -1,23 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono">
+      <div className="bg-white shadow-xl p-8 w-80 reunded">
+        <div>Sample App</div>
+        <div>ログイン</div>
+        <div>新規登録</div>
+      </div>
     </div>
   );
 }
