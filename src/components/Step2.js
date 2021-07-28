@@ -5,14 +5,14 @@ export const Step2 = () => {
   const [val, setVal] = useState("");
   const [val2, setVal2] = useState("");
   const [val3, setVal3] = useState("");
-  const [isShow, setIsShow] = useState(false);
+  const [isShowQue, setIsShowQue] = useState(false);
   const [isShowQue2, setIsShowQue2] = useState(false);
   const [isShowQue3, setIsShowQue3] = useState(false);
 
   const que1 = {
     id: 0,
     question: "現在、生命保険に加入されていますか？",
-    state: isShow,
+    state: isShowQue,
   };
   const que2 = {
     id: 1,
@@ -30,10 +30,10 @@ export const Step2 = () => {
   const selectQuestion = (e) => {
     if (e.target.value === "q1_no") {
       setVal(e.target.value);
-      setIsShow(true);
+      setIsShowQue(true);
     } else {
       setVal(e.target.value);
-      setIsShow(false);
+      setIsShowQue(false);
     }
   };
   const selectQuestion2 = (e) => {
@@ -55,8 +55,9 @@ export const Step2 = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono">
-      <div className="bg-white p-8 w-100 reunded">
+    <div className="min-h-screen text-gray-600 text-sm font-mono">
+      <div className="bg-white p-8 w-full reunded">
+        <div>以下にお答えください</div>
         <hr />
         {que1.question}
         <br />

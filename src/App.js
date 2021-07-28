@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import { Step1 } from "./components/Step1";
 import { Step2 } from "./components/Step2";
@@ -13,7 +13,6 @@ function App() {
       <Route path='/step2' component={Step2} />
       <Route path='/step3' component={Step3} />
     </Switch>
-    <Link to='/'>Back To Top</Link>
   </BrowserRouter>
   );
 }
