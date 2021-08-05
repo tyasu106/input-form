@@ -31,6 +31,25 @@ export const Step1 = () => {
     return list;
   };
 
+  const setWareki = () => {
+    let list = [];
+    for (let w = 1950; w <= new Date().getFullYear(); w++) {
+      if (w > 1988) {
+        return list.push(
+          <option key={`year_${w}`} value={w}>
+            {w}年 {"平成" + (w - 1988)}年
+          </option>
+        );
+      } if (w > 1925) {
+        return list.push(
+          <option key={`year_${w}`} value={w}>
+            {w}年 {"昭和" + (w - 1925)}年
+          </option>
+        );
+      }
+    }
+  };
+
   const setMonth = () => {
     let list = [];
     for (let i = 1; i <= 12; i++) {
@@ -94,6 +113,15 @@ export const Step1 = () => {
               name="year"
             >
               {setYear()}
+            </select>
+            <select
+              native
+              value={birthYear}
+              onChange={selectBirthYear}
+              id="birth-wareki"
+              name="year"
+            >
+              {setWareki()}
             </select>
             <select
               native
