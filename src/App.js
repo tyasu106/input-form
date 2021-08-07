@@ -1,14 +1,21 @@
-import "./App.css";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+
+import { Step1 } from "./components/Step1";
+import { Step2 } from "./components/Step2";
+import { Step3 } from "./components/Step3";
+import { example } from "./components/example";
 
 function App() {
+
   return (
-    <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono">
-      <div className="bg-white shadow-xl p-8 w-80 reunded">
-        <div>Sample App</div>
-        <div>ログイン</div>
-        <div>新規登録</div>
-      </div>
-    </div>
+    <BrowserRouter>
+    <Switch>
+      <Route exact path='/' component={Step1} />
+      <Route path='/step2' component={Step2} />
+      <Route path='/step3' component={Step3} />
+      <Route path='/example' component={example} />
+    </Switch>
+  </BrowserRouter>
   );
 }
 
