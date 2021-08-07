@@ -22,32 +22,47 @@ export const Step1 = () => {
   const setYear = () => {
     let list = [];
     for (let i = 1950; i <= new Date().getFullYear(); i++) {
-      list.push(
-        <option key={`year_${i}`} value={i}>
-          {i}年
-        </option>
-      );
-    }
-    return list;
-  };
-
-  const setWareki = () => {
-    let list = [];
-    for (let w = 1950; w <= new Date().getFullYear(); w++) {
-      if (w > 1988) {
-        return list.push(
-          <option key={`year_${w}`} value={w}>
-            {w}年 {"平成" + (w - 1988)}年
-          </option>
-        );
-      } if (w > 1925) {
-        return list.push(
-          <option key={`year_${w}`} value={w}>
-            {w}年 {"昭和" + (w - 1925)}年
+      let reiwa = i - 2019;
+      if (i > 2019) {
+        if (reiwa === 1) {
+          list.push(
+            <option key={`year_${i}`} value={i}>
+              {i}年 {"令和元"}年
+            </option>
+          );
+        } else {
+          list.push(
+            <option key={`year_${i}`} value={i}>
+              {i}年 {"令和" + reiwa}年
+            </option>
+          );
+        }
+      }
+      if (i > 1988 && i <= 2018) {
+        let heisei = i - 1988;
+        if (heisei === 1) {
+          list.push(
+            <option key={`year_${i}`} value={i}>
+              {i}年 {"平成元"}年
+            </option>
+          );
+        } else {
+          list.push(
+            <option key={`year_${i}`} value={i}>
+              {i}年 {"平成" + heisei}年
+            </option>
+          );
+        }
+      }
+      if (i > 1925 && i <= 1988) {
+        list.push(
+          <option key={`year_${i}`} value={i}>
+            {i}年 {"昭和" + (i - 1925)}年
           </option>
         );
       }
     }
+    return list;
   };
 
   const setMonth = () => {
@@ -113,15 +128,6 @@ export const Step1 = () => {
               name="year"
             >
               {setYear()}
-            </select>
-            <select
-              native
-              value={birthYear}
-              onChange={selectBirthYear}
-              id="birth-wareki"
-              name="year"
-            >
-              {setWareki()}
             </select>
             <select
               native
